@@ -83,6 +83,8 @@ $  npm install
 $  node server-model.js
 ```
 
+Open a browser at: [http://localhost:5625/html/](http://localhost:5625/html/)
+
 The implemenation is designed to work with an atom 2.0 feed and currently configured to fetch the GitHub feed (`./config/default.json`)
 
 ## Copyright and License

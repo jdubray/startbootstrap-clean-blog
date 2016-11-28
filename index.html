@@ -86,10 +86,16 @@
 
 		  // initial model, from server
 		  import {data}		   			from '../app/v1/model.js' 
-		  import {init, 
+		  
+          // You can also fetch the site's metadata from a static file
+          //import {data}                     from './static.model.js'
+
+          import {init, 
 			      getParameterByName,
 				  preparePage, 
 				  checkBackButton} 		from './components/init.components.js' ;
+
+                  
 
 		  var display = function(representation) {
 			    preparePage(model) ;
