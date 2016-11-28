@@ -22,6 +22,70 @@ Start Bootstrap was created by and is maintained by **[David Miller](http://davi
 
 Start Bootstrap is based on the [Bootstrap](http://getbootstrap.com/) framework created by [Mark Otto](https://twitter.com/mdo) and [Jacob Thorton](https://twitter.com/fat).
 
+## SAM Pattern
+
+This sample was modified to illustrate the [SAM pattern](http://sam.js.org). The updated sample features a back-end which provides the "model" initial value.
+
+The back-end is a node.js application, located in the `./app/` directory. The blog metadata can be specified in the `./app/data.js` file.
+
+The SAM pattern is implemented as a single page application. The structure of the pattern is implemented in the `./sam/` directory:
+- actions.js
+- model.js
+- state.js
+- view.js
+ 
+This implement is generic and can be reused across project. The pattern is initialized in index.html
+```
+// wire the elements of the pattern as a reactive look action->model->state->view
+state.init(view,theme, display, components) ;
+model.init(state, components, options) ;
+actions.init(model.present, options) ;
+components.actions.forEach(function(action) {
+    actions[action.name] = function(data, present) {
+        return action.implementation(data, present, model) ;
+    }
+}) ;
+
+view.init(model,theme(options))
+
+// wire SAM actions to the global variable a 
+a = actions ;
+
+// render initial state
+state.representation(model) ;
+``` 
+
+The display function is in charge of rendering the State representation into the Single Page structure (header, page, footer).
+```
+var display = function(representation) {
+    preparePage(model) ;
+    if (representation.header) { document.getElementById('header-representation').innerHTML = representation.header ; }
+    if (representation.page) { document.getElementById('page-representation').innerHTML = representation.page ; }
+    if (representation.footer) { document.getElementById('footer-representation').innerHTML = representation.footer ; }
+    initElements() ;
+    checkBackButton(model) ;
+}
+```
+
+A simple page transformation lifecycle is implemented:
+- preparePage (for rendering)
+- render state representation
+- initEments of the page (e.g. datePicker)
+- checkBackButton
+
+The sample is written in ES6 and transpiled at load time with [Google Traceur](https://github.com/google/traceur-compiler).
+
+To install and run the back-end (assuming you have already installed node.js):
+
+```
+$  cd app/
+$  npm install
+$  node server-model.js
+```
+
+The implemenation is designed to work with an atom 2.0 feed and currently configured to fetch the GitHub feed (`./config/default.json`)
+
 ## Copyright and License
 
 Copyright 2013-2016 Blackrock Digital LLC. Code released under the [MIT](https://github.com/BlackrockDigital/startbootstrap-clean-blog/blob/gh-pages/LICENSE) license.
+Copyright 2016 Jean-Jacques Dubray Code released under the [MIT](https://github.com/jdubray/startbootstrap-clean-blog/blob/master/LICENSE) license.
