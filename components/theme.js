@@ -60,7 +60,34 @@ let _theme = {
     blogItem(params) {
         params.posts = params.posts || [] ;
         if (params.blogid) {
+            let post = params.posts[params.blogid] ;
+            let postDate = post.published[0].substring(0,post.published[0].length - 10) ;
+            return `
+ <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header class="intro-header" style="background-image: url('${[0]}')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1>${params.blogTitle}</h1>
+                        <span class="meta">Posted by <a href="#">${post.author[0].name[0]}</a> on ${postDate}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
 
+    <!-- Post Content -->
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                ${post.content[0]._}
+                </div>
+            </div>
+        </div>
+    </article>        ` ;
         } else {
             let posts = params.posts.map(function(post) {
                 let postDate = post.published[0].substring(0,post.published[0].length - 10) ;
@@ -282,21 +309,7 @@ let _theme = {
         if (params.blogid) {
             let post = params.feed[params.blogid] || params.feed[0] || {} ;
             let postDate = post.published[0].substring(0,post.published[0].length - 10) ;
-            return `
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                ${blogEntries}
-                <!-- Pager -->
-                <ul class="pager">
-                    <li class="next">
-                        <a href="#">Older Posts &rarr;</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-            ` ;
+            return this.blogItem({posts: param.feed, blogid: params.blogid, blogTitle: params.blogTitle});
         } else {
             return this.blogItem({posts: params.feed, blogTitle: params.blogTitle}) ;
         }

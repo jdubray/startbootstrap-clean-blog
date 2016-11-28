@@ -1,13 +1,15 @@
-# [Start Bootstrap](http://startbootstrap.com/) - [Clean Blog](http://startbootstrap.com/template-overviews/clean-blog/)
+# [xgen.io](http://xgen.io) - A SAM Implementation of the [Clean Blog](http://startbootstrap.com/template-overviews/clean-blog/)
 
-[Clean Blog](http://startbootstrap.com/template-overviews/clean-blog/) is a stylish, responsive blog theme for [Bootstrap](http://getbootstrap.com/) created by [Start Bootstrap](http://startbootstrap.com/). This theme features a blog homepage, about page, contact page, and an example post page along with a working PHP contact form.
+[Clean Blog](http://startbootstrap.com/template-overviews/clean-blog/) is a responsive blog theme for [Bootstrap](http://getbootstrap.com/) created by [Start Bootstrap](http://startbootstrap.com/). This theme features a blog homepage, about page, contact page, and an example post page along with a working node.js contact form.
 
 ## Getting Started
 
 To begin using this template, choose one of the following options to get started:
-* [Download the latest release on Start Bootstrap](http://startbootstrap.com/template-overviews/clean-blog/)
-* Clone the repo: `git clone https://github.com/BlackrockDigital/startbootstrap-clean-blog.git`
+* Clone the repo: `git clone https://github.com/jdubray/startbootstrap-clean-blog.git`
 * Fork the repo
+
+The original code can be found [on Start Bootstrap](http://startbootstrap.com/template-overviews/clean-blog/)
+
 
 ## Bugs and Issues
 
@@ -21,6 +23,11 @@ Start Bootstrap was created by and is maintained by **[David Miller](http://davi
 * https://github.com/davidtmiller
 
 Start Bootstrap is based on the [Bootstrap](http://getbootstrap.com/) framework created by [Mark Otto](https://twitter.com/mdo) and [Jacob Thorton](https://twitter.com/fat).
+
+This version of the project was created by and is maintained by **[Jean-Jacques Dubray](http://ebpml.org)**, Founder of [xgen.io](http://xgen.io)
+
+* https://twitter.com/metapgmr
+* https://github.com/jdubray
 
 ## SAM Pattern
 
